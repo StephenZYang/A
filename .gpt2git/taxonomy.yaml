@@ -1,0 +1,13 @@
+version: 1
+
+root: knowledge
+
+routes:
+  gpt2git-note:
+    domain: ai
+  agent-skill:
+    domain: ai
+  chatgpt:
+    domain: ai
+  github-knowledge-base:
+    domain: ai
