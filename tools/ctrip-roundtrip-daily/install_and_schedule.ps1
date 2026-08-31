@@ -14,7 +14,6 @@ if(-not (Get-Command py -ErrorAction SilentlyContinue)){
   throw 'Python launcher (py) not found. Reinstall Python 3.14 from python.org and enable the Python Launcher.'
 }
 
-# Verify that Python 3.14 is actually available through the launcher.
 Write-Host '[2/6] Checking Python 3.14...'
 & py -3.14 --version
 if($LASTEXITCODE -ne 0){
@@ -23,8 +22,6 @@ if($LASTEXITCODE -ne 0){
   throw 'Python 3.14 is not available through the Python launcher.'
 }
 
-# A venv can leave python.exe behind even when its base Python was removed/moved.
-# Test the existing venv and rebuild it if it is broken.
 $NeedRebuild=$true
 if(Test-Path $Python){
   Write-Host 'Checking existing virtual environment...'
@@ -65,7 +62,11 @@ $Cmd=Join-Path $Dest 'run_daily.cmd'
 Set-Content -Encoding ASCII $Cmd ('@echo off' + "`r`n" + 'cd /d "%USERPROFILE%\CtripFareCheck"' + "`r`n" + '"%USERPROFILE%\CtripFareCheck\.venv\Scripts\python.exe" "%USERPROFILE%\CtripFareCheck\ctrip_roundtrip_qingdao_melbourne.py"')
 
 Write-Host '[5/6] Registering Windows daily task at 08:05...'
-$TaskName='Ctrip TAO-MEL Daily Fare Check'
+$OldTaskName='Ctrip TAO-MEL Daily Fare Check'
+$TaskName='Ctrip MEL-TAO Daily Fare Check'
+if(Get-ScheduledTask -TaskName $OldTaskName -ErrorAction SilentlyContinue){
+  Unregister-ScheduledTask -TaskName $OldTaskName -Confirm:$false
+}
 $Action=New-ScheduledTaskAction -Execute 'cmd.exe' -Argument ('/c "'+$Cmd+'"') -WorkingDirectory $Dest
 $Trigger=New-ScheduledTaskTrigger -Daily -At 8:05AM
 $Principal=New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Limited
@@ -73,6 +74,7 @@ $Settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatter
 Register-ScheduledTask -TaskName $TaskName -Action $Action -Trigger $Trigger -Principal $Principal -Settings $Settings -Force | Out-Null
 
 Write-Host '[6/6] Running once now...'
+Write-Host 'Route: 2027-02-01 MEL -> TAO; 2027-02-14 TAO -> MEL'
 Write-Host 'If Ctrip asks for CAPTCHA/security verification, complete it manually in Edge.'
 & $Cmd
 if($LASTEXITCODE -ne 0){
