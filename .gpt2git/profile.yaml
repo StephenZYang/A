@@ -1,0 +1,23 @@
+version: 1
+
+profile:
+  primary_domains:
+    - ai-tools
+    - knowledge-management
+
+  languages: []
+  frameworks: []
+
+  data:
+    databases: []
+    caches: []
+    messaging: []
+
+  ai:
+    - agent-skills
+    - github-knowledge-base
+
+learning:
+  interview_mode: false
+  preserve_followups: true
+  preserve_misconceptions: true
