@@ -5,7 +5,7 @@ import csv, json, time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
-FROM_CODE='TAO'; TO_CODE='MEL'
+FROM_CODE='MEL'; TO_CODE='TAO'
 DEPART_DATE='2027-02-01'; RETURN_DATE='2027-02-14'
 LIMIT=30; WAIT_SECONDS=35
 BASE=Path.home()/'CtripFareCheck'; RESULTS=BASE/'results'; PROFILE=BASE/'edge_profile'
@@ -27,12 +27,14 @@ def main():
     o=webdriver.EdgeOptions();o.add_argument(f'--user-data-dir={PROFILE}');o.add_argument('--start-maximized')
     d=webdriver.Edge(options=o)
     try:
+        print('2027-02-01 墨尔本 MEL -> 青岛 TAO')
+        print('2027-02-14 青岛 TAO -> 墨尔本 MEL')
         print(URL);d.get(URL);s=WebDriverWait(d,WAIT_SECONDS).until(state)
         if s=='captcha':
             print('携程要求验证码/安全验证，请在 Edge 中手动完成。');input('完成后按 Enter 继续...');d.get(URL);s=WebDriverWait(d,WAIT_SECONDS).until(state)
         for _ in range(6):d.execute_script('window.scrollTo(0,document.body.scrollHeight)');time.sleep(1.8)
         rows=d.execute_script(JS) or [];rows=sorted(rows,key=lambda r:(r.get('price') is None,r.get('price') or 10**12))[:LIMIT]
-        ts=datetime.now().strftime('%Y-%m-%d_%H-%M-%S');csvp=RESULTS/f'{ts}_TAO-MEL.csv';jsonp=RESULTS/f'{ts}_TAO-MEL.json'
+        ts=datetime.now().strftime('%Y-%m-%d_%H-%M-%S');csvp=RESULTS/f'{ts}_MEL-TAO.csv';jsonp=RESULTS/f'{ts}_MEL-TAO.json'
         for i,r in enumerate(rows,1):r['rank']=i;r['url']=URL
         fields=['rank','airline','departureTime','departureAirport','arrivalTime','arrivalAirport','price','currency','cabin','url','rawText']
         with csvp.open('w',newline='',encoding='utf-8-sig') as f:w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
