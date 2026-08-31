@@ -5,11 +5,11 @@ $Raw='https://raw.githubusercontent.com/StephenZYang/A/main/tools/ctrip-roundtri
 New-Item -ItemType Directory -Force -Path $Dest | Out-Null
 Write-Host '[1/5] Downloading checker...'
 Invoke-WebRequest -UseBasicParsing $Raw -OutFile $PyFile
-if(-not (Get-Command py -ErrorAction SilentlyContinue)){throw 'Python launcher (py) not found. Install Python 3.11 from python.org first.'}
+if(-not (Get-Command py -ErrorAction SilentlyContinue)){throw 'Python launcher (py) not found. Install Python 3.14 from python.org first.'}
 $Venv=Join-Path $Dest '.venv'
 if(-not (Test-Path (Join-Path $Venv 'Scripts\python.exe'))){
   Write-Host '[2/5] Creating Python environment...'
-  & py -3.11 -m venv $Venv
+  & py -3.14 -m venv $Venv
   if($LASTEXITCODE -ne 0){& py -m venv $Venv}
 }
 $Python=Join-Path $Venv 'Scripts\python.exe'
