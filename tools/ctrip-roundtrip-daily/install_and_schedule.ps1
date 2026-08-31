@@ -1,7 +1,7 @@
 $ErrorActionPreference='Stop'
 $Dest=Join-Path $env:USERPROFILE 'CtripFareCheck'
 $PyFile=Join-Path $Dest 'ctrip_roundtrip_qingdao_melbourne.py'
-$Raw='https://raw.githubusercontent.com/StephenZYang/A/main/tools/ctrip-roundtrip-daily/ctrip_roundtrip_qingdao_melbourne.py'
+$Raw='https://raw.githubusercontent.com/StephenZYang/A/d8de7be5db95226ab09f78ecb32a930f70eb2e57/tools/ctrip-roundtrip-daily/ctrip_roundtrip_qingdao_melbourne.py'
 $Venv=Join-Path $Dest '.venv'
 $Python=Join-Path $Venv 'Scripts\python.exe'
 
