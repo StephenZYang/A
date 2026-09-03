@@ -101,29 +101,39 @@ if(-not (Test-Path (Join-Path $RepoDir '.git'))){
   & git -C $RepoDir pull --rebase origin main
 }
 
-$Cmd=Join-Path $Dest 'run_daily.cmd'
+$Cmd=Join-Path $Dest 'run_startup.cmd'
 $CmdText = @'
 @echo off
+rem Wait 45 seconds after Windows sign-in so networking and Edge services are ready.
+timeout /t 45 /nobreak >nul
 set CTRIP_AUTOMATED=1
 cd /d "%USERPROFILE%\CtripFareCheck"
 "%USERPROFILE%\CtripFareCheck\.venv\Scripts\python.exe" "%USERPROFILE%\CtripFareCheck\ctrip_roundtrip_qingdao_melbourne.py"
 '@
 Set-Content -Encoding ASCII $Cmd $CmdText
 
-Write-Host '[7/8] Registering Windows daily task at 08:05...'
-$OldTaskName='Ctrip TAO-MEL Daily Fare Check'
-$TaskName='Ctrip MEL-TAO Daily Fare Check'
-if(Get-ScheduledTask -TaskName $OldTaskName -ErrorAction SilentlyContinue){
-  Unregister-ScheduledTask -TaskName $OldTaskName -Confirm:$false
+Write-Host '[7/8] Registering Windows task to run after sign-in...'
+$OldTaskNames=@(
+  'Ctrip TAO-MEL Daily Fare Check',
+  'Ctrip MEL-TAO Daily Fare Check',
+  'Ctrip MEL-TAO Startup Fare Check'
+)
+foreach($OldTaskName in $OldTaskNames){
+  if(Get-ScheduledTask -TaskName $OldTaskName -ErrorAction SilentlyContinue){
+    Unregister-ScheduledTask -TaskName $OldTaskName -Confirm:$false
+  }
 }
+
+$TaskName='Ctrip MEL-TAO Startup Fare Check'
 $Action=New-ScheduledTaskAction -Execute 'cmd.exe' -Argument ('/c "'+$Cmd+'"') -WorkingDirectory $Dest
-$Trigger=New-ScheduledTaskTrigger -Daily -At 8:05AM
+$Trigger=New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
 $Principal=New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Limited
-$Settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
+$Settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew
 Register-ScheduledTask -TaskName $TaskName -Action $Action -Trigger $Trigger -Principal $Principal -Settings $Settings -Force | Out-Null
 
 Write-Host '[8/8] Running first check now...'
 Write-Host 'Route: 2027-02-01 MEL -> TAO; 2027-02-14 TAO -> MEL'
+Write-Host 'Future checks will start automatically about 45 seconds after you sign in to Windows.'
 Write-Host 'If Ctrip asks for CAPTCHA/security verification, complete it manually in Edge.'
 & $Python $PyFile
 if($LASTEXITCODE -ne 0){
@@ -132,7 +142,8 @@ if($LASTEXITCODE -ne 0){
 
 Write-Host ''
 Write-Host 'Installed successfully.'
-Write-Host "Windows daily task: $TaskName at 08:05"
+Write-Host "Windows startup task: $TaskName"
+Write-Host 'Trigger: after Windows sign-in (about 45-second delay)'
 Write-Host "Local results: $Dest\results"
 Write-Host 'GitHub status file: StephenZYang/A/flight-monitor/MEL-TAO/latest.json'
-Write-Host 'ChatGPT will read the synced status after the daily check.'
+Write-Host 'ChatGPT will monitor the synced status and notify you after a new result appears.'
