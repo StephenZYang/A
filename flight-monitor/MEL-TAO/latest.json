@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-03T23:43:08+10:00",
+  "checked_at": "2026-09-03T23:46:51+10:00",
   "status": "ok",
   "route": {
     "outbound": "MEL->TAO",
@@ -9,9 +9,9 @@
   },
   "lowest_price": 4142,
   "currency": "¥",
-  "previous_lowest_price": null,
-  "change_amount": null,
-  "change_percent": null,
+  "previous_lowest_price": 4142,
+  "change_amount": 0,
+  "change_percent": 0.0,
   "lowest_result": {
     "rank": 1,
     "airline": "吉祥航空",
