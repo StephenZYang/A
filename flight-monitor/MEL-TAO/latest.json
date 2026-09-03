@@ -1,19 +1,86 @@
 {
-  "checked_at": null,
-  "status": "awaiting_first_run",
+  "checked_at": "2026-09-03T23:43:08+10:00",
+  "status": "ok",
   "route": {
     "outbound": "MEL->TAO",
     "depart_date": "2027-02-01",
     "return": "TAO->MEL",
     "return_date": "2027-02-14"
   },
-  "lowest_price": null,
-  "currency": null,
+  "lowest_price": 4142,
+  "currency": "¥",
   "previous_lowest_price": null,
   "change_amount": null,
   "change_percent": null,
-  "lowest_result": null,
-  "top_results": [],
-  "result_count": 0,
-  "note": "等待 Windows 自动查询首次成功同步。"
+  "lowest_result": {
+    "rank": 1,
+    "airline": "吉祥航空",
+    "departureTime": "09:00",
+    "departureAirport": "墨尔本机场",
+    "arrivalTime": "20:35",
+    "arrivalAirport": "青岛胶东国际机场",
+    "price": 4142,
+    "currency": "¥",
+    "cabin": ""
+  },
+  "top_results": [
+    {
+      "rank": 1,
+      "airline": "吉祥航空",
+      "departureTime": "09:00",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "20:35",
+      "arrivalAirport": "青岛胶东国际机场",
+      "price": 4142,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 2,
+      "airline": "吉祥航空",
+      "departureTime": "09:00",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "10:35",
+      "arrivalAirport": "+1天",
+      "price": 4142,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 3,
+      "airline": "东方航空",
+      "departureTime": "13:00",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "09:15",
+      "arrivalAirport": "+1天",
+      "price": 4672,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 4,
+      "airline": "东方航空",
+      "departureTime": "12:00",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "00:10",
+      "arrivalAirport": "+1天",
+      "price": 4792,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 5,
+      "airline": "东方航空",
+      "departureTime": "22:30",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "11:10",
+      "arrivalAirport": "+1天",
+      "price": 4792,
+      "currency": "¥",
+      "cabin": ""
+    }
+  ],
+  "result_count": 28,
+  "search_url": "https://flights.ctrip.com/online/list/round-mel-tao?depdate=2027-02-01_2027-02-14&cabin=Y_S_C_F&adult=1&child=0&infant=0",
+  "note": null
 }
