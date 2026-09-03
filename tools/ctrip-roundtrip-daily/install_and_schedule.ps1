@@ -84,9 +84,12 @@ if(-not (Get-Command gh -ErrorAction SilentlyContinue)){
 }
 
 Write-Host '[6/8] Connecting GitHub for automatic result upload...'
-& gh auth status *> $null
-if($LASTEXITCODE -ne 0){
-  Write-Host 'One-time GitHub authorization is required. A browser/device login may open.'
+# Use cmd.exe for the status probe because Windows PowerShell can turn gh stderr
+# into a terminating NativeCommandError when ErrorActionPreference is Stop.
+& cmd.exe /d /c "gh auth status >nul 2>&1"
+$GhLoggedIn = ($LASTEXITCODE -eq 0)
+if(-not $GhLoggedIn){
+  Write-Host 'One-time GitHub authorization is required. Your browser will open.'
   & gh auth login --hostname github.com --git-protocol https --web
   if($LASTEXITCODE -ne 0){throw 'GitHub login failed.'}
 }
