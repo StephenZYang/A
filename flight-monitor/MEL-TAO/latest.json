@@ -1,0 +1,19 @@
+{
+  "checked_at": null,
+  "status": "awaiting_first_run",
+  "route": {
+    "outbound": "MEL->TAO",
+    "depart_date": "2027-02-01",
+    "return": "TAO->MEL",
+    "return_date": "2027-02-14"
+  },
+  "lowest_price": null,
+  "currency": null,
+  "previous_lowest_price": null,
+  "change_amount": null,
+  "change_percent": null,
+  "lowest_result": null,
+  "top_results": [],
+  "result_count": 0,
+  "note": "等待 Windows 自动查询首次成功同步。"
+}
