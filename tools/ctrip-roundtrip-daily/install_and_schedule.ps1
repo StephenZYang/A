@@ -68,6 +68,12 @@ if(-not (Get-Command git -ErrorAction SilentlyContinue)){
   Refresh-Path
 }
 if(-not (Get-Command git -ErrorAction SilentlyContinue)){
+  $GitCandidate=Join-Path $env:ProgramFiles 'Git\cmd\git.exe'
+  if(Test-Path $GitCandidate){
+    $env:Path=(Split-Path $GitCandidate)+";"+$env:Path
+  }
+}
+if(-not (Get-Command git -ErrorAction SilentlyContinue)){
   throw 'Git installation was not detected. Restart PowerShell and run this installer again.'
 }
 
@@ -79,26 +85,48 @@ if(-not (Get-Command gh -ErrorAction SilentlyContinue)){
   & winget install --id GitHub.cli -e --accept-package-agreements --accept-source-agreements
   Refresh-Path
 }
-if(-not (Get-Command gh -ErrorAction SilentlyContinue)){
-  throw 'GitHub CLI installation was not detected. Restart PowerShell and run this installer again.'
+
+# Resolve gh.exe explicitly because an MSI installed by winget may not appear in the
+# current PowerShell PATH until a new terminal is opened.
+$GhExe=$null
+$GhCommand=Get-Command gh -ErrorAction SilentlyContinue
+if($GhCommand){$GhExe=$GhCommand.Source}
+if(-not $GhExe){
+  $GhCandidates=@(
+    (Join-Path $env:ProgramFiles 'GitHub CLI\gh.exe'),
+    (Join-Path $env:LOCALAPPDATA 'Programs\GitHub CLI\gh.exe')
+  )
+  if(${env:ProgramFiles(x86)}){
+    $GhCandidates += (Join-Path ${env:ProgramFiles(x86)} 'GitHub CLI\gh.exe')
+  }
+  foreach($candidate in $GhCandidates){
+    if(Test-Path $candidate){$GhExe=$candidate;break}
+  }
 }
+if(-not $GhExe){
+  throw 'GitHub CLI was installed but gh.exe could not be located. Close PowerShell, open a new PowerShell window, and run this installer again.'
+}
+Write-Host "Using GitHub CLI: $GhExe"
 
 Write-Host '[6/8] Connecting GitHub for automatic result upload...'
-# Use cmd.exe for the status probe because Windows PowerShell can turn gh stderr
-# into a terminating NativeCommandError when ErrorActionPreference is Stop.
-& cmd.exe /d /c "gh auth status >nul 2>&1"
-$GhLoggedIn = ($LASTEXITCODE -eq 0)
+# gh auth status returns a nonzero code when not logged in. Temporarily avoid turning
+# that expected stderr into a terminating PowerShell error.
+$OldErrorActionPreference=$ErrorActionPreference
+$ErrorActionPreference='Continue'
+& $GhExe auth status *> $null
+$GhLoggedIn=($LASTEXITCODE -eq 0)
+$ErrorActionPreference=$OldErrorActionPreference
 if(-not $GhLoggedIn){
   Write-Host 'One-time GitHub authorization is required. Your browser will open.'
-  & gh auth login --hostname github.com --git-protocol https --web
+  & $GhExe auth login --hostname github.com --git-protocol https --web
   if($LASTEXITCODE -ne 0){throw 'GitHub login failed.'}
 }
-& gh auth setup-git
+& $GhExe auth setup-git
 if($LASTEXITCODE -ne 0){throw 'Could not configure Git authentication.'}
 
 if(-not (Test-Path (Join-Path $RepoDir '.git'))){
   if(Test-Path $RepoDir){Remove-Item -Recurse -Force $RepoDir}
-  & gh repo clone StephenZYang/A $RepoDir
+  & $GhExe repo clone StephenZYang/A $RepoDir
   if($LASTEXITCODE -ne 0){throw 'Could not clone StephenZYang/A for fare result synchronization.'}
 } else {
   & git -C $RepoDir pull --rebase origin main
