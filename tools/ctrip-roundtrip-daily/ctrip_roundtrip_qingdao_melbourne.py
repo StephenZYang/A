@@ -56,6 +56,20 @@ def run_git(*args, check=True):
     )
 
 
+def compact_result(r):
+    return {
+        'rank': r.get('rank'),
+        'airline': r.get('airline'),
+        'departureTime': r.get('departureTime'),
+        'departureAirport': r.get('departureAirport'),
+        'arrivalTime': r.get('arrivalTime'),
+        'arrivalAirport': r.get('arrivalAirport'),
+        'price': r.get('price'),
+        'currency': r.get('currency'),
+        'cabin': r.get('cabin'),
+    }
+
+
 def sync_status(status, rows=None, note=None):
     rows = rows or []
     if not (REPO / '.git').exists():
@@ -96,19 +110,8 @@ def sync_status(status, rows=None, note=None):
             if previous_price:
                 change_percent = round(change_amount / previous_price * 100, 2)
 
-        top_results = []
-        for r in rows[:5]:
-            top_results.append({
-                'rank': r.get('rank'),
-                'airline': r.get('airline'),
-                'departureTime': r.get('departureTime'),
-                'departureAirport': r.get('departureAirport'),
-                'arrivalTime': r.get('arrivalTime'),
-                'arrivalAirport': r.get('arrivalAirport'),
-                'price': r.get('price'),
-                'currency': r.get('currency'),
-                'cabin': r.get('cabin'),
-            })
+        all_results = [compact_result(r) for r in rows]
+        top_results = all_results[:5]
 
         payload = {
             'checked_at': datetime.now().astimezone().isoformat(timespec='seconds'),
@@ -124,8 +127,9 @@ def sync_status(status, rows=None, note=None):
             'previous_lowest_price': previous_price,
             'change_amount': change_amount,
             'change_percent': change_percent,
-            'lowest_result': top_results[0] if top_results else None,
+            'lowest_result': all_results[0] if all_results else None,
             'top_results': top_results,
+            'all_results': all_results,
             'result_count': len(rows),
             'search_url': URL,
             'note': note,
