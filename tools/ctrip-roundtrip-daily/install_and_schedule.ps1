@@ -2,7 +2,7 @@ $ErrorActionPreference='Stop'
 
 $Dest=Join-Path $env:USERPROFILE 'CtripFareCheck'
 $PyFile=Join-Path $Dest 'ctrip_roundtrip_qingdao_melbourne.py'
-$Raw='https://raw.githubusercontent.com/StephenZYang/A/da38c075f10daebb08132bec0ed40e2bf0368deb/tools/ctrip-roundtrip-daily/ctrip_roundtrip_qingdao_melbourne.py'
+$Raw='https://raw.githubusercontent.com/StephenZYang/A/27e752975c42fd42b708303b8ede023df8ee5d94/tools/ctrip-roundtrip-daily/ctrip_roundtrip_qingdao_melbourne.py'
 $Venv=Join-Path $Dest '.venv'
 $Python=Join-Path $Venv 'Scripts\python.exe'
 $RepoDir=Join-Path $Dest 'repo_sync'
@@ -177,4 +177,4 @@ Write-Host "Windows startup task: $TaskName"
 Write-Host 'Trigger: after Windows sign-in (about 45-second delay)'
 Write-Host "Local results: $Dest\results"
 Write-Host 'GitHub status file: StephenZYang/A/flight-monitor/MEL-TAO/latest.json'
-Write-Host 'ChatGPT will monitor the synced status and notify you after a new result appears.'
+Write-Host 'ChatGPT will read all synced fare results in the daily report.'
