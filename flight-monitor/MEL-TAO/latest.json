@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-11T23:57:34+10:00",
-  "status": "empty",
+  "checked_at": "2026-09-12T15:53:50+10:00",
+  "status": "captcha_required",
   "route": {
     "outbound": "MEL->TAO",
     "depart_date": "2027-02-01",
@@ -17,5 +17,5 @@
   "all_results": [],
   "result_count": 0,
   "search_url": "https://flights.ctrip.com/online/list/round-mel-tao?depdate=2027-02-01_2027-02-14&cabin=Y_S_C_F&adult=1&child=0&infant=0",
-  "note": "结果页已加载，但没有解析到可用航班卡片。"
+  "note": "携程要求验证码/安全验证；请手动运行脚本完成验证。"
 }
