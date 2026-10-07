@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-07T15:18:03+11:00",
+  "checked_at": "2026-10-07T22:03:37+11:00",
   "status": "ok",
   "route": {
     "outbound": "MEL->TAO",
@@ -319,7 +319,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "10:25",
       "arrivalAirport": "+1天",
-      "price": 6142,
+      "price": 6131,
       "currency": "¥",
       "cabin": ""
     },
@@ -330,7 +330,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 6920,
+      "price": 6909,
       "currency": "¥",
       "cabin": ""
     },
@@ -341,7 +341,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 8286,
+      "price": 8273,
       "currency": "¥",
       "cabin": ""
     },
@@ -352,7 +352,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 8286,
+      "price": 8273,
       "currency": "¥",
       "cabin": ""
     }
