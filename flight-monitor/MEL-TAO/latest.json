@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-08T02:11:59+11:00",
+  "checked_at": "2026-10-08T14:54:54+11:00",
   "status": "ok",
   "route": {
     "outbound": "MEL->TAO",
@@ -7,11 +7,11 @@
     "return": "TAO->MEL",
     "return_date": "2027-02-14"
   },
-  "lowest_price": 4024,
+  "lowest_price": 4040,
   "currency": "¥",
   "previous_lowest_price": 4024,
-  "change_amount": 0,
-  "change_percent": 0.0,
+  "change_amount": 16,
+  "change_percent": 0.4,
   "lowest_result": {
     "rank": 1,
     "airline": "吉祥航空",
@@ -19,7 +19,7 @@
     "departureAirport": "墨尔本机场",
     "arrivalTime": "20:50",
     "arrivalAirport": "青岛胶东国际机场",
-    "price": 4024,
+    "price": 4040,
     "currency": "¥",
     "cabin": ""
   },
@@ -31,7 +31,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "20:50",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4024,
+      "price": 4040,
       "currency": "¥",
       "cabin": ""
     },
@@ -42,7 +42,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:00",
       "arrivalAirport": "+1天",
-      "price": 4024,
+      "price": 4040,
       "currency": "¥",
       "cabin": ""
     },
@@ -53,7 +53,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:15",
       "arrivalAirport": "+1天",
-      "price": 4166,
+      "price": 4172,
       "currency": "¥",
       "cabin": ""
     },
@@ -64,7 +64,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "19:55",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4169,
+      "price": 4174,
       "currency": "¥",
       "cabin": ""
     },
@@ -75,7 +75,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
-      "price": 4169,
+      "price": 4174,
       "currency": "¥",
       "cabin": ""
     }
@@ -88,7 +88,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "20:50",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4024,
+      "price": 4040,
       "currency": "¥",
       "cabin": ""
     },
@@ -99,7 +99,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:00",
       "arrivalAirport": "+1天",
-      "price": 4024,
+      "price": 4040,
       "currency": "¥",
       "cabin": ""
     },
@@ -110,7 +110,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:15",
       "arrivalAirport": "+1天",
-      "price": 4166,
+      "price": 4172,
       "currency": "¥",
       "cabin": ""
     },
@@ -121,7 +121,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "19:55",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4169,
+      "price": 4174,
       "currency": "¥",
       "cabin": ""
     },
@@ -132,7 +132,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
-      "price": 4169,
+      "price": 4174,
       "currency": "¥",
       "cabin": ""
     },
@@ -143,7 +143,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
-      "price": 4169,
+      "price": 4174,
       "currency": "¥",
       "cabin": ""
     },
@@ -154,7 +154,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "11:15",
       "arrivalAirport": "+1天",
-      "price": 4189,
+      "price": 4194,
       "currency": "¥",
       "cabin": ""
     },
@@ -165,7 +165,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "15:00",
       "arrivalAirport": "+1天",
-      "price": 4189,
+      "price": 4194,
       "currency": "¥",
       "cabin": ""
     },
@@ -176,7 +176,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "17:55",
       "arrivalAirport": "+1天",
-      "price": 4189,
+      "price": 4194,
       "currency": "¥",
       "cabin": ""
     },
@@ -187,7 +187,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "19:55",
       "arrivalAirport": "+1天",
-      "price": 4189,
+      "price": 4194,
       "currency": "¥",
       "cabin": ""
     },
@@ -198,7 +198,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+2天",
-      "price": 4189,
+      "price": 4194,
       "currency": "¥",
       "cabin": ""
     },
@@ -209,7 +209,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "12:40",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -220,7 +220,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -231,7 +231,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "11:10",
       "arrivalAirport": "+1天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -242,7 +242,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "12:40",
       "arrivalAirport": "+1天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -253,7 +253,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "16:05",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -264,7 +264,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "18:35",
       "arrivalAirport": "青岛胶东国际机场",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -275,7 +275,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "17:35",
       "arrivalAirport": "+1天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -286,7 +286,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -297,7 +297,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+2天",
-      "price": 4236,
+      "price": 4252,
       "currency": "¥",
       "cabin": ""
     },
@@ -308,7 +308,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:55",
       "arrivalAirport": "+1天",
-      "price": 5216,
+      "price": 5232,
       "currency": "¥",
       "cabin": ""
     },
@@ -319,7 +319,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "10:25",
       "arrivalAirport": "+1天",
-      "price": 6310,
+      "price": 6147,
       "currency": "¥",
       "cabin": ""
     },
@@ -330,7 +330,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 7239,
+      "price": 6920,
       "currency": "¥",
       "cabin": ""
     },
@@ -341,7 +341,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 8272,
+      "price": 8264,
       "currency": "¥",
       "cabin": ""
     },
@@ -352,7 +352,7 @@
       "departureAirport": "墨尔本机场",
       "arrivalTime": "07:25",
       "arrivalAirport": "+1天",
-      "price": 8272,
+      "price": 8264,
       "currency": "¥",
       "cabin": ""
     }
