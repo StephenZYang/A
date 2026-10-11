@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-10T21:35:40+11:00",
+  "checked_at": "2026-10-11T13:01:02+11:00",
   "status": "ok",
   "route": {
     "outbound": "MEL->TAO",
@@ -9,9 +9,9 @@
   },
   "lowest_price": 4042,
   "currency": "¥",
-  "previous_lowest_price": 4040,
-  "change_amount": 2,
-  "change_percent": 0.05,
+  "previous_lowest_price": 4042,
+  "change_amount": 0,
+  "change_percent": 0.0,
   "lowest_result": {
     "rank": 1,
     "airline": "吉祥航空",
@@ -59,22 +59,22 @@
     },
     {
       "rank": 4,
-      "airline": "南方航空",
-      "departureTime": "08:40",
+      "airline": "东方航空",
+      "departureTime": "13:00",
       "departureAirport": "墨尔本机场",
-      "arrivalTime": "19:55",
-      "arrivalAirport": "青岛胶东国际机场",
-      "price": 4209,
+      "arrivalTime": "11:50",
+      "arrivalAirport": "+1天",
+      "price": 4204,
       "currency": "¥",
       "cabin": ""
     },
     {
       "rank": 5,
       "airline": "南方航空",
-      "departureTime": "11:25",
+      "departureTime": "08:40",
       "departureAirport": "墨尔本机场",
-      "arrivalTime": "00:10",
-      "arrivalAirport": "+1天",
+      "arrivalTime": "19:55",
+      "arrivalAirport": "青岛胶东国际机场",
       "price": 4209,
       "currency": "¥",
       "cabin": ""
@@ -116,6 +116,17 @@
     },
     {
       "rank": 4,
+      "airline": "东方航空",
+      "departureTime": "13:00",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "11:50",
+      "arrivalAirport": "+1天",
+      "price": 4204,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 5,
       "airline": "南方航空",
       "departureTime": "08:40",
       "departureAirport": "墨尔本机场",
@@ -126,20 +137,9 @@
       "cabin": ""
     },
     {
-      "rank": 5,
-      "airline": "南方航空",
-      "departureTime": "11:25",
-      "departureAirport": "墨尔本机场",
-      "arrivalTime": "00:10",
-      "arrivalAirport": "+1天",
-      "price": 4209,
-      "currency": "¥",
-      "cabin": ""
-    },
-    {
       "rank": 6,
       "airline": "南方航空",
-      "departureTime": "08:40",
+      "departureTime": "11:25",
       "departureAirport": "墨尔本机场",
       "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
@@ -150,9 +150,9 @@
     {
       "rank": 7,
       "airline": "南方航空",
-      "departureTime": "11:25",
+      "departureTime": "08:40",
       "departureAirport": "墨尔本机场",
-      "arrivalTime": "11:15",
+      "arrivalTime": "00:10",
       "arrivalAirport": "+1天",
       "price": 4209,
       "currency": "¥",
@@ -227,9 +227,9 @@
     {
       "rank": 14,
       "airline": "东方航空",
-      "departureTime": "12:00",
+      "departureTime": "22:30",
       "departureAirport": "墨尔本机场",
-      "arrivalTime": "11:10",
+      "arrivalTime": "17:35",
       "arrivalAirport": "+1天",
       "price": 4264,
       "currency": "¥",
@@ -237,6 +237,28 @@
     },
     {
       "rank": 15,
+      "airline": "东方航空",
+      "departureTime": "01:50",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "00:10",
+      "arrivalAirport": "+1天",
+      "price": 4264,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 16,
+      "airline": "东方航空",
+      "departureTime": "22:30",
+      "departureAirport": "墨尔本机场",
+      "arrivalTime": "00:10",
+      "arrivalAirport": "+2天",
+      "price": 4264,
+      "currency": "¥",
+      "cabin": ""
+    },
+    {
+      "rank": 17,
       "airline": "南方航空",
       "departureTime": "23:25",
       "departureAirport": "墨尔本机场",
@@ -247,7 +269,7 @@
       "cabin": ""
     },
     {
-      "rank": 16,
+      "rank": 18,
       "airline": "南方航空",
       "departureTime": "23:25",
       "departureAirport": "墨尔本机场",
@@ -258,18 +280,18 @@
       "cabin": ""
     },
     {
-      "rank": 17,
+      "rank": 19,
       "airline": "四川航空",
       "departureTime": "21:40",
       "departureAirport": "墨尔本机场",
       "arrivalTime": "09:55",
       "arrivalAirport": "+1天",
-      "price": 5256,
+      "price": 4796,
       "currency": "¥",
       "cabin": ""
     },
     {
-      "rank": 18,
+      "rank": 20,
       "airline": "中国国航",
       "departureTime": "15:00",
       "departureAirport": "墨尔本机场",
@@ -280,7 +302,7 @@
       "cabin": ""
     },
     {
-      "rank": 19,
+      "rank": 21,
       "airline": "酷航",
       "departureTime": "13:25",
       "departureAirport": "墨尔本机场",
@@ -291,7 +313,7 @@
       "cabin": ""
     },
     {
-      "rank": 20,
+      "rank": 22,
       "airline": "新加坡航空",
       "departureTime": "19:25",
       "departureAirport": "墨尔本机场",
@@ -302,7 +324,7 @@
       "cabin": ""
     },
     {
-      "rank": 21,
+      "rank": 23,
       "airline": "新加坡航空",
       "departureTime": "16:20",
       "departureAirport": "墨尔本机场",
@@ -313,7 +335,7 @@
       "cabin": ""
     }
   ],
-  "result_count": 21,
+  "result_count": 23,
   "search_url": "https://flights.ctrip.com/online/list/round-mel-tao?depdate=2027-02-01_2027-02-14&cabin=Y_S_C_F&adult=1&child=0&infant=0",
   "note": null
 }
